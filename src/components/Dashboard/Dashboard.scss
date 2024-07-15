@@ -1,0 +1,37 @@
+.dashboard {
+    padding: 20px;
+    background: url("https://static.vecteezy.com/system/resources/previews/000/427/056/original/cricket-stadium-vector.jpg") center/cover;
+    height: 100vh;
+    opacity: 0.8; /* Adjust opacity as needed */
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-cards {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 60px;
+
+        .dashboard-card {
+            width: 300px;
+            margin-bottom: 20px;
+
+            @media (max-width: 768px) {
+                width: calc(50% - 20px);
+            }
+
+            @media (max-width: 480px) {
+                width: 100%;
+            }
+
+            .ant-card-cover {
+                height: 200px;
+                object-fit: contain;
+                object-position: center;
+            }
+        }
+    }
+}
