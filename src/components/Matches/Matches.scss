@@ -1,8 +1,32 @@
+.match-container{
+  .blink{
+		padding: 15px;	
+		text-align: center;
+    margin-top: 20px;
+  }
+	span{
+
+    margin:10px;
+    padding:10px;
+    border-radius: 5px;
+		color: white;
+	  width:300px;
+    text-align: center;
+    border:2px solid yellow;
+	}
+@keyframes blink{
+0%{opacity: 0;}
+50%{opacity: .5;}
+100%{opacity: 1;}
+}
+
+}
 .home-page{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
+
 }
 
 .home-page-card {
@@ -42,4 +66,5 @@
     font-size: 1rem;
     line-height: 1.4;
   }
+  
   

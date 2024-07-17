@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Matches.css';
+import './Matches.scss';
 
 const Matches = () => {
     const navigate = useNavigate();
+    const [selectedCard, setSelectedCard] = useState('');
+
+    useEffect(() => {
+        const cardTitle = sessionStorage.getItem('selectedCard');
+        if (cardTitle) {
+            setSelectedCard(cardTitle);
+        }
+    }, []);
 
     const matchesList = [
         {
@@ -12,8 +20,7 @@ const Matches = () => {
             imageUrl: 'https://wordpresscdn.winzogames.com/prod/blog/wp-content/uploads/2022/11/06063944/IND-vs-Zim-696x453.png',
             content: 'Match details for IND v ZIM',
             link: '/firstmatch',
-            date:"24-08-2024"
-
+            date: "24-08-2024"
         },
         {
             id: 2,
@@ -21,8 +28,7 @@ const Matches = () => {
             imageUrl: 'https://cdn.dnaindia.com/sites/default/files/styles/full/public/2020/10/19/932375-twitter-5.jpg',
             content: 'Match details for Dumbulla v Jafna kings',
             link: '/secondmatch',
-            date:"24-08-2024"
-
+            date: "24-08-2024"
         },
         {
             id: 3,
@@ -30,8 +36,7 @@ const Matches = () => {
             imageUrl: 'https://crickettimes.com/wp-content/uploads/2022/10/ICC-announces-complete-schedule-of-2023-Womens-T20-World-Cup.jpg',
             content: 'Match details for WIW v AUSW',
             link: '/thirdmatch',
-            date:"24-08-2024"
-
+            date: "24-08-2024"
         }
     ];
 
@@ -40,8 +45,12 @@ const Matches = () => {
     };
 
     return (
-        <div>
-            <h2 style={{ textShadow: "2px 2px 5px #d25a1d" }}>Don't Stop... Chase your Dream....$</h2>
+        <div className='match-container'>
+            {selectedCard && (
+                <div className="blink">
+                    <span>{selectedCard}</span>
+                </div>
+            )}
             <div className="home-page">
                 {matchesList.map(match => (
                     <div key={match.id} onClick={() => handleCardClick(match)} className="home-page-card">

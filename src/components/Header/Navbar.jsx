@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
-import { HomeOutlined, UserOutlined, ReadOutlined, PhoneOutlined, MenuFoldOutlined, MenuUnfoldOutlined, PlayCircleFilled } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, ReadOutlined, PhoneOutlined, MenuFoldOutlined, MenuUnfoldOutlined,} from '@ant-design/icons';
 
 const NavBar = () => {
   const [click, setClick] = useState(false);

@@ -4,6 +4,7 @@ import  Dashboard  from "./components/Dashboard/Dashboard";
 import NavBar from "./components/Header/Navbar";
 import Matches from "./components/Matches/Matches";
 import MatchDetails from "./components/MatchDetails/MatchDetails";
+import Chat from "./components/ChatBox/Contact";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/matches" element={<Matches />} />
+            <Route path="/contact" element={<Chat/>} />
             <Route path="/match-details" element={<MatchDetails />} />
           </Routes>
         </div>
