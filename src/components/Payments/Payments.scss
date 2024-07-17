@@ -1,0 +1,107 @@
+.payments-card {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1f5156;
+  border: 1px solid #060000;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+
+  .ant-typography {
+    margin-bottom: 20px;
+  }
+
+  .radio-group {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .ant-radio-button-wrapper {
+      background-color: #1f5156;
+      color: #fff;
+      border: 1px solid #1f5156;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #1b464a;
+        color: #fff;
+        border-color: #1b464a;
+      }
+
+      &.ant-radio-button-wrapper-checked {
+        background-color: #f5b921;
+        color: #1f5156;
+        border-color: #f5b921;
+
+        &:hover {
+          background-color: #e0a71d;
+          color: #1f5156;
+          border-color: #e0a71d;
+        }
+      }
+
+      &.ant-radio-button-wrapper:first-child {
+        border-radius: 4px 0 0 4px;
+      }
+
+      &.ant-radio-button-wrapper:last-child {
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    .action-button {
+      background-color: #1890ff;
+      border-color: #1890ff;
+    }
+  }
+
+  .transaction-form {
+    margin-bottom: 20px;
+
+    .ant-form-item {
+      margin-bottom: 16px;
+
+      .ant-form-item-label {
+        padding: 0 0 8px;
+      }
+    }
+
+    .ant-input-number {
+      width: 100%;
+    }
+
+    .ant-btn-primary {
+      width: 100%;
+    }
+  }
+
+  .payments-list {
+    .ant-list-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f0;
+      color: white;
+      margin-right: 10px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .date-color {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: white;
+    margin-left: 10px;
+  }
+}

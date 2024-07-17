@@ -1,0 +1,33 @@
+.rules-card {
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #1f5156;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  .ant-typography {
+    margin-bottom: 20px;
+  }
+
+  .ant-list-item {
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    color: white;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .download-button {
+    display: block;
+    width: 250px;
+    text-align: center;
+    margin-top: 20px;
+  }
+}

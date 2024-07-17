@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.scss";
-import { HomeOutlined, UserOutlined, ReadOutlined, PhoneOutlined, MenuFoldOutlined, MenuUnfoldOutlined,} from '@ant-design/icons';
+import {
+  HomeOutlined,
+  UserOutlined,
+  ReadOutlined,
+  PhoneOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+} from "@ant-design/icons";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
@@ -31,23 +38,23 @@ const NavBar = () => {
             <li className="nav-item">
               <NavLink
                 exact
-                to="/about"
+                to="/rules"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                <UserOutlined /> About
+                <UserOutlined /> Rules
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 exact
-                to="/blog"
+                to="/payments"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                <ReadOutlined /> Blog
+                <ReadOutlined /> Payments
               </NavLink>
             </li>
             <li className="nav-item">
@@ -79,6 +86,6 @@ const NavBar = () => {
       </nav>
     </>
   );
-}
+};
 
 export default NavBar;

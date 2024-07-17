@@ -5,6 +5,8 @@ import NavBar from "./components/Header/Navbar";
 import Matches from "./components/Matches/Matches";
 import MatchDetails from "./components/MatchDetails/MatchDetails";
 import Chat from "./components/ChatBox/Contact";
+import RulesPage from "./components/RulePage/Rules";
+import PaymentsPage from "./components/Payments/Payments";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route path="/matches" element={<Matches />} />
             <Route path="/contact" element={<Chat/>} />
             <Route path="/match-details" element={<MatchDetails />} />
+            <Route path="/rules" element={<RulesPage/>}/>
+            <Route path="payments" element={<PaymentsPage/>}/>
           </Routes>
         </div>
       </Router>

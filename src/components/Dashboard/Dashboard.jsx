@@ -2,38 +2,52 @@ import React from "react";
 import { Card } from "antd";
 import "./Dashboard.scss";
 import { useNavigate } from "react-router-dom";
+import CricketVideos from "../YoutubeVideos/YoutubeVideos";
 
 const { Meta } = Card;
 
 const Dashboard = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleCardClick = (title) => {
-        sessionStorage.setItem("selectedCard", title);
-        navigate("/matches");
-    };
+  const handleCardClick = (title) => {
+    sessionStorage.setItem("selectedCard", title);
+    navigate("/matches");
+  };
 
-    return (
-        <div className="dashboard">
-            <div className="dashboard-cards">
-                <Card
-                    onClick={() => handleCardClick("Top SIX")}
-                    className="dashboard-card"
-                    cover={<img alt="Top Six" src="https://tse1.mm.bing.net/th?id=OIP.fgvARLzq6BWX8DQDjDwcoAHaEK&pid=Api&P=0&h=180" />}
-                >
-                    <Meta title="Top Scorer" description="Details about top scorer" />
-                </Card>
+  return (
+    <div className="dashboard">
+      <div className="dashboard-cards">
+        <Card
+          onClick={() => handleCardClick("Top SIX")}
+          className="dashboard-card"
+          cover={
+            <img
+              alt="Top Six"
+              src="data:image/jpeg;base64,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"
+            />
+          }
+        >
+          <Meta title="Top Scorer" description="Details about top scorer" />
+        </Card>
 
-                <Card
-                    onClick={() => handleCardClick("Top SCORER")}
-                    className="dashboard-card"
-                    cover={<img alt="Top Score" src="https://tse3.mm.bing.net/th?id=OIP.rSU-ZUGJeXm2_F3N3tMMXQHaEK&pid=Api&P=0&h=180" />}
-                >
-                    <Meta title="Top Sixer" description="Details about top sixer" />
-                </Card>
-            </div>
-        </div>
-    );
+        <Card
+          onClick={() => handleCardClick("Top SCORER")}
+          className="dashboard-card"
+          cover={
+            <img
+              alt="Top Score"
+              src="https://tse3.mm.bing.net/th?id=OIP.rSU-ZUGJeXm2_F3N3tMMXQHaEK&pid=Api&P=0&h=180"
+            />
+          }
+        >
+          <Meta title="Top Sixer" description="Details about top sixer" />
+        </Card>
+      </div>
+      <div>
+        <CricketVideos />
+      </div>
+    </div>
+  );
 };
 
 export default Dashboard;
