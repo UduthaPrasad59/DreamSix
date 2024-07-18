@@ -7,6 +7,7 @@ import MatchDetails from "./components/MatchDetails/MatchDetails";
 import Chat from "./components/ChatBox/Contact";
 import RulesPage from "./components/RulePage/Rules";
 import PaymentsPage from "./components/Payments/Payments";
+import LoginPage from "./components/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/match-details" element={<MatchDetails />} />
             <Route path="/rules" element={<RulesPage/>}/>
             <Route path="payments" element={<PaymentsPage/>}/>
+            <Route path="/login" element={<LoginPage/>}/>
           </Routes>
         </div>
       </Router>

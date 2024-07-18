@@ -1,0 +1,37 @@
+/* LoginPage.css */
+
+.login-container {
+  background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
+  background-size: cover;
+  height: 100%;
+  padding: 25px;
+}
+
+.login-image {
+  background: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.1;
+}
+
+.login-image {
+  height: 100%;
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.form-wrapper {
+  max-width: 300px;
+  width: 100%;
+  border: 1px solid white;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10 black;
+}

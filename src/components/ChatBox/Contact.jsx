@@ -1,71 +1,74 @@
-import React from 'react';
-import { Layout, Menu, Input, Button, List, Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
-import './Contact.scss';
+// Chatbox.js
+import React, { useState } from "react";
+import { Layout, Input, Button, List, Typography, Avatar } from "antd";
 
-const { Header, Content, Footer, Sider } = Layout;
+import "./Contact.scss";
 
-function Chat() {
-  return (
-    <Layout className="layout">
-      <Sider theme="light">
-        <div className="logo" />
-        <Menu mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            Chat Group
-          </Menu.Item>
-        </Menu>
-      </Sider>
-      <Layout>
-        <Header className="header">Chat Application</Header>
-        <Content className="content">
-          <div>
-            {/* Chat Box Component */}
-            <ChatBox />
-          </div>
-        </Content>
-        <Footer className="footer">Chat Group ©2024</Footer>
-      </Layout>
-    </Layout>
-  );
-}
+const { Header, Content, Footer } = Layout;
+const { Text } = Typography;
+const { TextArea } = Input;
 
-function ChatBox() {
-  const [messages, setMessages] = React.useState([]);
-  const [inputValue, setInputValue] = React.useState('');
+const Chatbox = () => {
+  const [messages, setMessages] = useState([
+    { sender: "admin", text: "Hello! How can I help you today?" },
+  ]);
+  const [inputValue, setInputValue] = useState("");
 
   const handleSend = () => {
     if (inputValue.trim()) {
-      setMessages([...messages, { text: inputValue, sender: 'You' }]);
-      setInputValue('');
+      setMessages([...messages, { sender: "user", text: inputValue }]);
+      setInputValue("");
+      // Simulate admin reply
+      setTimeout(() => {
+        setMessages((prevMessages) => [
+          ...prevMessages,
+          { sender: "admin", text: "Iam DreamSix admin , what do you want !." },
+        ]);
+      }, 1000);
     }
   };
 
   return (
-    <div className="chat-box">
-      <List
-        className="message-list"
-        dataSource={messages}
-        renderItem={item => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar icon={<UserOutlined />} />}
-              title={item.sender}
-              description={item.text}
-            />
-          </List.Item>
-        )}
-      />
-      <Input
-        className="input-field"
-        value={inputValue}
-        onChange={e => setInputValue(e.target.value)}
-        onPressEnter={handleSend}
-        placeholder="Type a message"
-      />
-      <Button type="primary" onClick={handleSend}>Send</Button>
+    <div className="Chat-Container">
+      <div className="chatbox-layout">
+        <Header className="chatbox-header">
+          <Text strong style={{ color: "white" }}>
+            Chat with Admin
+          </Text>
+        </Header>
+        <Content className="chatbox-content">
+          <List
+            dataSource={messages}
+            renderItem={(item) => (
+              <List.Item
+                className={
+                  item.sender === "admin" ? "admin-message" : "user-message"
+                }
+              >
+                <List.Item.Meta
+                  avatar={
+                    <Avatar>{item.sender === "admin" ? "A" : "U"}</Avatar>
+                  }
+                  description={item.text}
+                />
+              </List.Item>
+            )}
+          />
+        </Content>
+        <Footer className="chatbox-footer">
+          <TextArea
+            rows={2}
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onPressEnter={handleSend}
+          />
+          <Button type="primary" onClick={handleSend} block>
+            Send
+          </Button>
+        </Footer>
+      </div>
     </div>
   );
-}
+};
 
-export default Chat;
+export default Chatbox;

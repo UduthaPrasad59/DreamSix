@@ -1,28 +1,27 @@
+// App.js
 import React, { useState } from "react";
-import { Card, Button, List, Typography, Radio, Form, Input } from "antd";
-import "./Payments.scss";
+import { Radio, Button, Form, Input, List, Card } from "antd";
 
-const { Title } = Typography;
-
-const payments = [
-  { id: 1, type: "Deposit", amount: 100, date: "2024-01-01" },
-  { id: 2, type: "Withdraw", amount: 50, date: "2024-01-02" },
-  { id: 3, type: "Deposit", amount: 200, date: "2024-01-03" },
-  { id: 4, type: "Withdraw", amount: 30, date: "2024-01-04" },
-  { id: 5, type: "Deposit", amount: 300, date: "2024-01-05" },
-  { id: 6, type: "Withdraw", amount: 20, date: "2024-01-06" },
-  { id: 7, type: "Deposit", amount: 400, date: "2024-01-07" },
-  { id: 8, type: "Withdraw", amount: 10, date: "2024-01-08" },
-  { id: 9, type: "Deposit", amount: 500, date: "2024-01-09" },
-  { id: 10, type: "Withdraw", amount: 70, date: "2024-01-10" },
+const transactions = [
+  { id: 1, type: "deposit", amount: 100 },
+  { id: 2, type: "withdraw", amount: 50 },
+  { id: 3, type: "deposit", amount: 200 },
+  { id: 4, type: "withdraw", amount: 150 },
+  { id: 5, type: "deposit", amount: 300 },
+  { id: 6, type: "withdraw", amount: 100 },
+  { id: 7, type: "deposit", amount: 400 },
+  { id: 8, type: "withdraw", amount: 200 },
+  { id: 9, type: "deposit", amount: 500 },
+  { id: 10, type: "withdraw", amount: 250 },
 ];
 
-const PaymentsPage = () => {
-  const [selectedOption, setSelectedOption] = useState("Deposit");
+const Payments = () => {
+  const [form] = Form.useForm();
+  const [transactionType, setTransactionType] = useState("deposit");
   const [showForm, setShowForm] = useState(false);
 
-  const handleRadioChange = (e) => {
-    setSelectedOption(e.target.value);
+  const handleTypeChange = (e) => {
+    setTransactionType(e.target.value);
     setShowForm(false);
   };
 
@@ -30,60 +29,58 @@ const PaymentsPage = () => {
     setShowForm(true);
   };
 
-  const filteredPayments = payments
-    .filter((payment) => payment.type === selectedOption)
-    .slice(0, 5);
+  const handleFinish = (values) => {
+    console.log("Form Values:", values);
+    form.resetFields();
+    setShowForm(false);
+  };
+
+  const filteredTransactions = transactions.filter(
+    (transaction) => transaction.type === transactionType
+  );
 
   return (
-    <Card className="payments-card" title="Payments" bordered={false}>
-      <Radio.Group
-        className="radio-group"
-        onChange={handleRadioChange}
-        value={selectedOption}
-      >
-        <Radio.Button value="Deposit">Deposit</Radio.Button>
-        <Radio.Button value="Withdraw">Withdraw</Radio.Button>
+    <div style={{ padding: "50px" }}>
+      <Radio.Group value={transactionType} onChange={handleTypeChange}>
+        <Radio.Button value="deposit">Deposit</Radio.Button>
+        <Radio.Button value="withdraw">Withdraw</Radio.Button>
       </Radio.Group>
-      <div className="button-container">
-        <Button
-          type="primary"
-          className="action-button"
-          onClick={handleButtonClick}
-        >
-          {selectedOption === "Deposit" ? "Deposit" : "Withdraw"}
+      <div style={{ margin: "20px 0" }}>
+        <Button type="primary" onClick={handleButtonClick}>
+          {transactionType === "deposit" ? "Deposit Money" : "Withdraw Money"}
         </Button>
       </div>
       {showForm && (
-        <Form className="transaction-form">
+        <Form form={form} onFinish={handleFinish} layout="inline">
           <Form.Item
-            label={`${selectedOption} Amount`}
             name="amount"
             rules={[{ required: true, message: "Please input the amount!" }]}
           >
-            <Input type="number" />
+            <Input placeholder="Amount" />
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit">
-              {selectedOption}
+              Submit
             </Button>
           </Form.Item>
         </Form>
       )}
-      <List
-        className="payments-list"
-        bordered
-        dataSource={filteredPayments}
-        renderItem={(item) => (
-          <List.Item key={item.id}>
-            <Typography.Text className="date-color">
-              {item.date}
-            </Typography.Text>{" "}
-            - {item.type}: ${item.amount}
-          </List.Item>
-        )}
-      />
-    </Card>
+      <div style={{ marginTop: "20px" }}>
+        <List
+          grid={{ gutter: 16, column: 2 }}
+          dataSource={filteredTransactions}
+          renderItem={(item) => (
+            <List.Item>
+              <Card title={`Transaction ID: ${item.id}`}>
+                {item.type === "deposit" ? "Deposited: " : "Withdrawn: "}$
+                {item.amount}
+              </Card>
+            </List.Item>
+          )}
+        />
+      </div>
+    </div>
   );
 };
 
-export default PaymentsPage;
+export default Payments;
