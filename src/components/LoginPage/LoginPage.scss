@@ -35,3 +35,7 @@
   border-radius: 5px;
   box-shadow: 0 0 10 black;
 }
+/* Custom styles for form labels */
+.ant-form-item-label > label {
+  color: white !important; /* Change to your desired color */
+}

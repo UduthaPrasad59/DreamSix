@@ -1,0 +1,31 @@
+// MatchWinners.scss
+.match-winners {
+  padding: 20px;
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .winner-card {
+    background-color: #001529;
+    color: white;
+    text-align: center;
+    .winner-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .winner-details {
+      margin-top: 10px;
+
+      h3 {
+        font-size: 1.2em;
+      }
+
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+}

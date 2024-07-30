@@ -1,0 +1,31 @@
+.match-cards-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.match-card {
+  width: 18%;
+  margin-bottom: 20px;
+  color: white; // Set font color to white
+
+  .ant-card-meta-title,
+  .ant-card-meta-description,
+  .ant-card-head-title {
+    color: white; // Ensure both title and description are white
+  }
+
+  .ant-card-cover img {
+    height: 200px; // Set a fixed height for the images
+    object-fit: cover; // Ensure images cover the area without stretching
+  }
+
+  .ant-card-body {
+    background-color: #001529;
+  }
+
+  .ant-card-head {
+    background-color: #001529;
+  }
+}

@@ -1,3 +1,4 @@
+/* Rules.scss */
 .rules-card {
   width: 600px;
   margin: 0 auto;
@@ -12,6 +13,11 @@
 
   .ant-typography {
     margin-bottom: 20px;
+  }
+
+  .rules-title {
+    color: white;
+    font-size: 25px;
   }
 
   .ant-list-item {
@@ -29,5 +35,6 @@
     width: 250px;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
 }

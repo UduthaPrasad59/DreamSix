@@ -29,7 +29,10 @@ const downloadRules = () => {
 
 const RulesPage = () => {
   return (
-    <Card className="rules-card" title="DreamSix - Rules" bordered={false}>
+    <Card className="rules-card" bordered={false}>
+      <Title level={2} style={{ color: "white", fontSize: "25px" }}>
+        DreamSix - Rules
+      </Title>
       {/* <Button
         type="primary"
         icon={<DownloadOutlined />}

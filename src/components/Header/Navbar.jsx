@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import "./NavBar.scss";
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { Dropdown, Menu } from "antd";
 import {
   HomeOutlined,
   UserOutlined,
@@ -9,29 +9,65 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
+import { SlUser } from "react-icons/sl";
+import "./NavBar.scss";
+
+// Example logo URL; replace with your actual logo URL
+const logoUrl =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT29GI8Pxv7AcQ24XY1vMZQjYlcZizZMy-e-w&s";
 
 const NavBar = () => {
   const [click, setClick] = useState(false);
+  const [username, setUsername] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUsername = sessionStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+    }
+  }, []);
 
   const handleClick = () => setClick(!click);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("username");
+    setUsername(null);
+    navigate("/login");
+  };
+
+  const userMenu = (
+    <Menu>
+      <Menu.Item key="logout" onClick={handleLogout}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
+            <img src={logoUrl} alt="Logo" className="logo-image" />
             <span>DreamSix</span>
           </NavLink>
 
+          <div className="nav-icon" onClick={handleClick}>
+            {click ? (
+              <span className="icon">
+                <MenuUnfoldOutlined />
+              </span>
+            ) : (
+              <span className="icon">
+                <MenuFoldOutlined />
+              </span>
+            )}
+          </div>
+
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
+              <NavLink exact to="/" className="nav-links" onClick={handleClick}>
                 <HomeOutlined /> Home
               </NavLink>
             </li>
@@ -39,7 +75,6 @@ const NavBar = () => {
               <NavLink
                 exact
                 to="/rules"
-                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -50,7 +85,6 @@ const NavBar = () => {
               <NavLink
                 exact
                 to="/payments"
-                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
@@ -61,27 +95,36 @@ const NavBar = () => {
               <NavLink
                 exact
                 to="/contact"
-                activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
                 <PhoneOutlined /> Contact Us
               </NavLink>
             </li>
-          </ul>
-          <div className="nav-icon" onClick={handleClick}>
-            {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
-
-            {click ? (
-              <span className="icon">
-                <MenuUnfoldOutlined />{" "}
-              </span>
+            {!username ? (
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/login"
+                  className="nav-links"
+                  onClick={handleClick}
+                >
+                  <SlUser /> Login/Signup
+                </NavLink>
+              </li>
             ) : (
-              <span className="icon">
-                <MenuFoldOutlined />
-              </span>
+              <li className="nav-item">
+                <Dropdown overlay={userMenu} trigger={["click"]}>
+                  <span
+                    className="nav-links"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    {username}
+                  </span>
+                </Dropdown>
+              </li>
             )}
-          </div>
+          </ul>
         </div>
       </nav>
     </>

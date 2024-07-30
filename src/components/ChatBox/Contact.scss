@@ -1,52 +1,34 @@
 /* Chatbox.scss */
-.chatbox-layout {
-  width: 40vw;
-  height: 80vh;
-  border: 1px solid #ddd;
-  display: flex;
-  flex-direction: column;
-  background-color: #ffffff;
-}
-
-.Chat-Container {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.chatbox-header {
-  background: #1f5156;
-  color: white;
+.Chatbox-data {
+  border: 1px solid #007bff; /* Changed color to a more suitable blue */
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Adjusted box-shadow for better visibility */
   text-align: center;
-  padding: 10px;
+  margin: 20px auto; /* Centering with automatic margins */
+  padding: 20px; /* Added padding for better spacing */
+  width: 100%;
+  max-width: 600px; /* Set a max-width for larger screens */
 }
 
-.chatbox-content {
-  flex: 1;
-  overflow-y: auto;
-  padding: 10px;
+.Chatbox-data h2 {
+  color: #ffffff; /* White color for header */
 }
 
-.chatbox-footer {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  background: #f0f2f5;
+.Chatbox-data p {
+  color: #ffffff; /* White color for paragraphs */
+  margin: 10px 0; /* Added margin for spacing between paragraphs */
 }
 
-.user-message {
-  justify-content: flex-end;
+/* Media Queries */
+@media (max-width: 768px) {
+  .Chatbox-data {
+    width: 90%; /* Adjust width for tablets and smaller screens */
+    margin: 20px auto; /* Centering on smaller screens */
+  }
 }
 
-.admin-message {
-  justify-content: flex-start;
-}
-
-.app-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f2f5;
+@media (max-width: 480px) {
+  .Chatbox-data {
+    width: 95%; /* Further adjustment for very small screens */
+  }
 }

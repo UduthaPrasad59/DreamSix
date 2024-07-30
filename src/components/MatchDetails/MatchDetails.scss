@@ -1,0 +1,46 @@
+/* MatchDetails.scss */
+.match-details {
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .match-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .match-image {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    p {
+      margin-bottom: 10px;
+      color: #333;
+    }
+  }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .match-details {
+    padding: 10px;
+
+    .match-info {
+      padding: 15px;
+    }
+  }
+}

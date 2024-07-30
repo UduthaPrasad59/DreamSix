@@ -1,107 +1,108 @@
-.payments-card {
-  width: 600px;
-  margin: 0 auto;
+/* Payments.scss */
+.payments-page {
   padding: 20px;
-  background: #1f5156;
-  border: 1px solid #060000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scanner-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scanner-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.sidebar-container {
+  flex: 1;
+  background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
+  overflow-y: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.option-content {
+  flex: 2;
+  padding: 20px;
+  overflow-y: auto;
+  background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
+  color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sidebar-container .ant-menu-item {
+  color: rgb(6, 0, 15);
+}
+
+.sidebar-container .ant-menu-item:hover {
+  background-color: rgb(28, 54, 84) !important;
+  color: white !important;
+}
+
+.sidebar-container .ant-menu-item-selected {
+  background-color: #1f5156 !important;
+  color: white !important;
+}
+
+.transaction-card {
+  border: 1px solid #e8e8e8;
   border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  margin-top: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #1f5156;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
 
-  .ant-typography {
-    margin-bottom: 20px;
+.transaction-card h3 {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.transaction-card p {
+  margin: 0;
+}
+
+.upload-item {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+
+  .upload-input {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    color: #ff1837;
   }
 
-  .radio-group {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-
-    .ant-radio-button-wrapper {
-      background-color: #1f5156;
-      color: #fff;
-      border: 1px solid #1f5156;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: #1b464a;
-        color: #fff;
-        border-color: #1b464a;
-      }
-
-      &.ant-radio-button-wrapper-checked {
-        background-color: #f5b921;
-        color: #1f5156;
-        border-color: #f5b921;
-
-        &:hover {
-          background-color: #e0a71d;
-          color: #1f5156;
-          border-color: #e0a71d;
-        }
-      }
-
-      &.ant-radio-button-wrapper:first-child {
-        border-radius: 4px 0 0 4px;
-      }
-
-      &.ant-radio-button-wrapper:last-child {
-        border-radius: 0 4px 4px 0;
-      }
-    }
-  }
-
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-
-    .action-button {
-      background-color: #1890ff;
-      border-color: #1890ff;
-    }
-  }
-
-  .transaction-form {
-    margin-bottom: 20px;
-
-    .ant-form-item {
-      margin-bottom: 16px;
-
-      .ant-form-item-label {
-        padding: 0 0 8px;
-      }
-    }
-
-    .ant-input-number {
-      width: 100%;
-    }
-
-    .ant-btn-primary {
-      width: 100%;
-    }
-  }
-
-  .payments-list {
-    .ant-list-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid #f0f0f0;
-      color: white;
-      margin-right: 10px;
-
-      &:last-child {
-        border-bottom: none;
-      }
-    }
-  }
-
-  .date-color {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
+  .upload-text {
+    display: inline-block;
+    margin-left: 8px;
+    font-size: 14px;
     color: white;
-    margin-left: 10px;
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, Col, Row } from "antd";
+import "./YoutubeVideos.scss";
 
 const videos = [
   {
@@ -24,7 +25,7 @@ const CricketVideos = () => {
           <Card
             title={video.title}
             bordered={false}
-            style={{ marginBottom: 16, backgroundColor: " #1f5156" }}
+            className="video-card"
           >
             <iframe
               width="100%"

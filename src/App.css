@@ -1,11 +1,13 @@
-.App {
-  text-align: center;
-}
-
+/* App.css */
 body {
   background-image: url("https://img.freepik.com/free-vector/green-shades-wavy-background_23-2148897829.jpg?t=st=1721202591~exp=1721206191~hmac=da727a7a6820169eafa73c85d8d46904a3efca7eb70c29c854d78135bb64ae16&w=740");
   background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -44,5 +46,7 @@ body {
 }
 
 .pages {
+  flex: 1;
+  overflow-y: auto;
   height: 90vh;
 }
